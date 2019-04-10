@@ -50,35 +50,35 @@ namespace Bigschool_QuangIdol.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //[Authorize]
-        //public ActionResult Attending()
-        //{
-        //    var userId = User.Identity.GetUserId();
+        [Authorize]
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
 
-        //    var courses = dbcontext.Attendances
-        //        .Where(a => a.AttendeeId == userId)
-        //        .Select(a => a.Course)
-        //        .Include(l => l.Lecturer)
-        //        .Include(l => l.Category)
-        //        .ToList();
-        //    var viewModel = new CourseViewModel
-        //    {
-        //        UpcommingCourses = courses,
-        //        ShowAction = User.Identity.IsAuthenticated
-        //    };
-        //    return View(viewModel);
-        //}
-        //[Authorize]
-        //public ActionResult Mine()
-        //{
-        //    var userId = User.Identity.GetUserId();
-        //    var courses = dbcontext.Courses
-        //        .Where(c => c.LecturerId == userId && c.DateTime > DateTime.Now)
-        //        .Include(l => l.Lecturer)
-        //        .Include(l => l.Category)
-        //        .ToList();
-        //    return View(courses);
-        //}
+            var courses = dbcontext.Attendances
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Course)
+                .Include(l => l.Lecturer)
+                .Include(l => l.Category)
+                .ToList();
+            var viewModel = new CourseViewModel
+            {
+                UpcommingCourses = courses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
+        }
+        [Authorize]
+        public ActionResult Mine()
+        {
+            var userId = User.Identity.GetUserId();
+            var courses = dbcontext.Courses
+                .Where(c => c.LecturerId == userId && c.DateTime > DateTime.Now)
+                .Include(l => l.Lecturer)
+                .Include(l => l.Category)
+                .ToList();
+            return View(courses);
+        }
         [Authorize]
         public ActionResult Edit(int id)
         {
