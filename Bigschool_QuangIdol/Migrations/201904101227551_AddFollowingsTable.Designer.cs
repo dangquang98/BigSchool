@@ -7,13 +7,13 @@ namespace Bigschool_QuangIdol.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class PopulateCategoryTable : IMigrationMetadata
+    public sealed partial class AddFollowingsTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateCategoryTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddFollowingsTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201903280406412_PopulateCategoryTable"; }
+            get { return "201904101227551_AddFollowingsTable"; }
         }
         
         string IMigrationMetadata.Source

@@ -20,6 +20,8 @@ namespace Bigschool_QuangIdol.Models
         public Category Category { get; set; }
         [Required]
         public byte CategoryId { get; set; }
+
+        public int Amount{ get; set;}
     }
    
 
