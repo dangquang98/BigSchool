@@ -3,6 +3,7 @@ using Bigschool_QuangIdol.Models.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -54,7 +55,6 @@ namespace Bigschool_QuangIdol.Controllers
         public ActionResult Attending()
         {
             var userId = User.Identity.GetUserId();
-
             var courses = dbcontext.Attendances
                 .Where(a => a.AttendeeId == userId)
                 .Select(a => a.Course)
@@ -75,7 +75,7 @@ namespace Bigschool_QuangIdol.Controllers
             var courses = dbcontext.Courses
                 .Where(c => c.LecturerId == userId && c.DateTime > DateTime.Now)
                 .Include(l => l.Lecturer)
-                .Include(l => l.Category)
+                .Include(c => c.Category)
                 .ToList();
             return View(courses);
         }

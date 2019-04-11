@@ -9,6 +9,7 @@ namespace Bigschool_QuangIdol.Models
     public class Course
     {
         public int Id { get; set; }
+        public bool IsCanceled { get; set; }
 
         public ApplicationUser Lecturer { get; set; }
         [Required]
@@ -20,7 +21,6 @@ namespace Bigschool_QuangIdol.Models
         public Category Category { get; set; }
         [Required]
         public byte CategoryId { get; set; }
-
         public int Amount{ get; set;}
     }
    

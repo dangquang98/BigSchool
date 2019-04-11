@@ -7,6 +7,6 @@ namespace Bigschool_QuangIdol.DTOs
 {
     public class FollowingDto
     {
-        public string FolloweeId { get; set; }
+        public string FollweeId { get; set; }
     }
 }

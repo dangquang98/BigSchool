@@ -22,14 +22,14 @@ namespace Bigschool_QuangIdol.Controllers
         public IHttpActionResult Follow(FollowingDto followingDto)
         {
             var userId = User.Identity.GetUserId();
-            if (dbcontext.Follwings.Any(f => f.FollowerId == userId && f.FolloweeId == followingDto.FollweeId))
+            if (dbcontext.Followings.Any(f => f.FollowerId == userId && f.FolloweeId == followingDto.FollweeId))
                 return BadRequest("Following already exists!");
             var folowing = new Following
             {
                 FollowerId = userId,
                 FolloweeId = followingDto.FollweeId
             };
-            dbcontext.Follwings.Add(folowing);
+            dbcontext.Followings.Add(folowing);
             dbcontext.SaveChanges();
             return Ok();
         }

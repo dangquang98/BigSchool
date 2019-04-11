@@ -1,7 +1,9 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿model Bigschool_QuangIdol.Models.ViewModels.CourseViewModel
+@{
+    ViewBag.Title = "Attending";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/Site.css" rel="stylesheet" />
+<<link href="~/Content/Site.css" rel="stylesheet" />
 <ul class="course">
     @foreach (var course in Model.UpcommingCourses)
     {

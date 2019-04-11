@@ -28,6 +28,7 @@ namespace Bigschool_QuangIdol.Controllers
             {
                 UpcommingCourses = upcommingCourses,
                 ShowAction = User.Identity.IsAuthenticated
+         
             };
 
             return View(viewModel); ;
